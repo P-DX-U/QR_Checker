@@ -1,0 +1,2 @@
+qrcode[pil]
+PySide6==6.11.1
