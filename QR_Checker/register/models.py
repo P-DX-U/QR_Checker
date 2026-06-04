@@ -13,5 +13,9 @@ class Assistant(models.Model):
     theme = models.CharField(max_length=256)
     date = models.DateField()
     event_addr = models.CharField(max_length=80)
-    hash = models.CharField(max_length=64)
 
+
+
+    def __str__(self):
+        return self.name
+    
