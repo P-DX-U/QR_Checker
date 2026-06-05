@@ -1,2 +1,12 @@
-#Virtual Environment
+# Virtual Environment
 .venv
+
+# Files
+*.pyc
+*~
+.DS_Store
+db.sqlite3
+
+# Folders
+__pycache__
+/static
