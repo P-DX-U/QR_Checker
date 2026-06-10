@@ -1,6 +1,9 @@
 from django import forms
 from .models import Post
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class PostForm(forms.ModelForm):
 
     class Meta:
@@ -44,8 +47,8 @@ class PostForm(forms.ModelForm):
                 'maxlength' : '256'
             }),
 
-            'date' : forms.DateInput(attrs={
-                'class' : 'block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6',
+            'date' : DateInput(attrs={
+                'class' : 'form-control block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6',
                 'maxlength' : '256'
             }),
 
