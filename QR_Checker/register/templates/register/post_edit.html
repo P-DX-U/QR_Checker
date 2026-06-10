@@ -3,11 +3,99 @@
 {% block content %}
 <form method="post" class="">
   {% csrf_token %}
+  <div class="border-gray-900/10 pb-12">
+    <h2 class="text-base/7 font-semibold text-gray-900">Información Personal</h2>
+    <p class="mt-1 text-sm/6 text-gray-600">Use direcciones de correo electrónico activas.</p>
+    
+    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      <div class="sm:col-span-3">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Nombre
+          </label>
+          {{ form.name }}
+        </div>
+      </div>
 
-  {{ form.as_p }}
-  
+      <div class="sm:col-span-3">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Apellidos
+          </label>
+          {{ form.last_name }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Correo electrónico
+          </label>
+          {{ form.email }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Rol
+          </label>
+          {{ form.role }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Tipo de evento
+          </label>
+          {{ form.event_type }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-full">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Nombre del evento
+          </label>
+          {{ form.event_name }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-full">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Tema
+          </label>
+          {{ form.theme }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-2 sm:col-start-1">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Fecha
+          </label>
+          {{ form.date }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-full">
+        <div class="mt-2">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Dirección del evento
+          </label>
+          {{ form.event_addr }}
+        </div>
+      </div>
+
+    </div>
+
     <div class="mt-6 flex items-center justify-end gap-x-6">
     <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
     <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+
+  </div>
+
 </form>
 {% endblock %}
