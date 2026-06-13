@@ -1,2 +1,23 @@
 #Virtual Environment
 .venv
+QR_Checker/db.sqlite3
+QR_Checker/python_utils/Logic_test.py
+QR_Checker/python_utils/__pycache__/p_utils.cpython-313.pyc
+QR_Checker/QR_Checker/__pycache__/__init__.cpython-313.pyc
+QR_Checker/QR_Checker/__pycache__/settings.cpython-313.pyc
+QR_Checker/QR_Checker/__pycache__/urls.cpython-313.pyc
+QR_Checker/QR_Checker/__pycache__/wsgi.cpython-313.pyc
+QR_Checker/register/__pycache__/forms.cpython-313.pyc
+QR_Checker/register/__pycache__/urls.cpython-313.pyc
+QR_Checker/register/__pycache__/views.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0002_remove_assistant_hash.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0003_alter_assistant_event_addr.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0004_rename_assistant_attendee.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0005_rename_attendee_post_attendee.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0006_rename_post_attendee_post.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0007_alter_post_event_type_alter_post_role.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0008_alter_post_event_type_alter_post_role.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0009_post_email_post_last_name.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0010_alter_post_event_type_alter_post_role.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0011_post_qr_hash.cpython-313.pyc
+QR_Checker/register/migrations/__pycache__/0012_alter_post_qr_hash.cpython-313.pyc
