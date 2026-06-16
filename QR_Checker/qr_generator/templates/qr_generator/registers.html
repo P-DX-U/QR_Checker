@@ -1,0 +1,59 @@
+{% extends 'register/main.html' %}
+
+{% block content %}
+        
+        <table  class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Tipo de Evento</th>
+                    <th>Rol</th>
+                    <th>Nombre del evento</th>
+                    <th>Tema</th>
+                    <th>Fecha de registro</th>
+                    <th>HASH</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for attendee in page_obj %}
+                <tr>
+                    <td>{{ attendee.ID }}</td>
+                    <td>{{ attendee.name }} {{ attendee.last_name }}</td>
+                    <td>{{ attendee.email }}</td>
+                    <td>{{ attendee.event_type }}</td>
+                    <td>{{ attendee.role }}</td>
+                    <td>{{ attendee.event_name }}</td>
+                    <td>{{ attendee.theme }}</td>
+                    <td>{{ attendee.date }}</td>
+                    <td>{{ attendee.qr_hash }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="10">No hay asistentes registrados.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+
+{% endblock %}
