@@ -369,6 +369,12 @@
   .max-w-2xl {
     max-width: var(--container-2xl);
   }
+  .table-auto {
+    table-layout: auto;
+  }
+  .table-fixed {
+    table-layout: fixed;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -867,6 +873,11 @@
       @supports (color: color-mix(in lab, red, red)) {
         --tw-ring-color: color-mix(in oklab, var(--color-gray-900) 10%, transparent);
       }
+    }
+  }
+  .md\:table-fixed {
+    @media (width >= 48rem) {
+      table-layout: fixed;
     }
   }
   .lg\:flex {
