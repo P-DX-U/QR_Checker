@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'register.apps.RegisterConfig',
+    'qr_generator.apps.QrGeneratorConfig',
 ]
 
 MIDDLEWARE = [
