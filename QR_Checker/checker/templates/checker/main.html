@@ -1,0 +1,26 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constancias ENaCiF</title>
+</head>
+<body>
+    <!------- Header ------->
+    <div class="bg-white">
+      <header class="flex justify-center inset-x-0 top-0 z-50">
+        <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+          <div class="flex lg:flex-1">
+            <a href="#" class="-m-1.5 p-1.5">
+              <img src="static/img/LogoENaCiF.svg" alt="logoENaCiF" class="h-30 w-auto"/>
+            </a>
+          </div>
+          <div  class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" /></div>
+        </nav>
+      </header>
+    </div>
+</body>
+</html>
