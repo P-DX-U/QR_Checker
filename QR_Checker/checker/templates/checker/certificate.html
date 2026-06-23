@@ -1,0 +1,20 @@
+{% extends 'checker/main.html' %}
+
+{% block content %}
+
+  {% if attendee %}
+  <div class="mt-10">
+    <h2 class="text-center text-2xl font-bold">Datos de la Constancia de Asistencia</h2>
+    <p>Programa: {{ attendee.theme }}</p>
+    <p>Curso: {{ attendee.event_name }}</p>
+    <p>Emitido por: Escuela Nacional de Ciencias Forenses</p>
+    <p>Nombre: {{ attendee.name }} {{ attendee.last_name }}</p>
+    <p>Folio: {{ attendee.id }}</p>
+    <p>Fecha de emisión: {{ attendee.date }}</p>
+    <p>Checksum: {{ attendee.qr_hash }}</p>
+  </div>
+  {% else %}
+    <p>No se encontr'o ninguna constancia con ese folio.</p>
+  {% endif %}
+  
+{% endblock %}

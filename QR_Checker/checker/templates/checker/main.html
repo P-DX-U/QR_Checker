@@ -6,21 +6,54 @@
     {% tailwind_css %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constancias ENaCiF</title>
+    <title>ENaCiF | Validar Constancia</title>
 </head>
 <body>
-    <!------- Header ------->
-    <div class="bg-white">
-      <header class="flex justify-center inset-x-0 top-0 z-50">
-        <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
-          <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
-              <img src="static/img/LogoENaCiF.svg" alt="logoENaCiF" class="h-30 w-auto"/>
-            </a>
-          </div>
-          <div  class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" /></div>
-        </nav>
-      </header>
+    <!---- Background ------>
+    <div class="bg-gray-100">
+      <!------- Header ------->
+      <div class="bg-white">
+        <header class="flex justify-center inset-x-0 top-0 z-50">
+          <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+            <div class="flex lg:flex-1">
+              <a href="#" class="-m-1.5 p-1.5">
+                <img src="static/img/LogoENaCiF_Horizontal.webp" alt="logoENaCiF" class="h-30 w-auto"/>
+              </a>
+            </div>
+          </nav>
+        </header>
+      </div>
+      <div class="flex w-full flex-col">
+        <div class="border-t-4 border-blue-950"></div>
+      </div>
+    
+      <!-------------  Background  --------------->
+      <div class="relative isolate px-6 pt-14 lg:px-8">
+        <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+          <div style="clip-path: 
+          polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" 
+          class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"></div>
+        </div>
+
+        <!---------- Body Content ---------->
+        <h1 class="text-center text-3xl font-bold mt-10">Valida Constancia</h1>
+        <div class="flex justify-center mt-10">
+          <form action="{% url 'checkin' %}" method="GET" class="w-full max-w-sm">
+            {% csrf_token %}
+            <div class="mb-4">
+              <label for="qr_code" class="block text-gray-700 text-sm font-bold mb-2">Folio:</label>
+              <input type="text" id="qr_code" name="qr_code" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingrese el número de folio">
+            </div>
+            <div class="flex items-center justify-between">
+              <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Buscar</button>
+            </div>
+          </form>
+        </div>
+
+        <!---------- Dynamic Content ----------->
+        {% block content %}
+        {% endblock %}
+      </div>
     </div>
 </body>
 </html>
