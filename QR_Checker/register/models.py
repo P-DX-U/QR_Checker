@@ -1,6 +1,10 @@
 from django.db import models
 
 class Post(models.Model):
+
+    def __str__(self):
+        return self.qr_hash
+
     class Meta:
         unique_together = (('ID','date'))
     ID = models.AutoField(primary_key=True)

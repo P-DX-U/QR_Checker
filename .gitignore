@@ -7,6 +7,20 @@
 .DS_Store
 db.sqlite3
 QR_Checker/python_utils/Logic_test.py
+AGENTS.md
+
+# Folders
+__pycache__
+/static
+# Virtual Environment
+.venv
+
+# Files
+*.pyc
+*~
+.DS_Store
+db.sqlite3
+QR_Checker/python_utils/Logic_test.py
 
 # Folders
 __pycache__

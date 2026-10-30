@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tailwind',
     'theme',
+    'checker.apps.CheckerConfig',
     'register.apps.RegisterConfig',
+    'qr_generator.apps.QrGeneratorConfig',
 ]
 
 MIDDLEWARE = [
