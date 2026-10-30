@@ -3,6 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('checker.urls')),
     path('', include('register.urls')),
     path('', include('qr_generator.urls')),
 ]
