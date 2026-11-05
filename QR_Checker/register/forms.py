@@ -1,5 +1,6 @@
 from django import forms
 from .models import Post
+from .csv_import import FIELD_LABELS
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -57,3 +58,46 @@ class PostForm(forms.ModelForm):
                 'maxlength' : '256'
             }),
         }
+
+class CsvUploadForm(forms.Form):
+    csv_file = forms.FileField(
+        label='Archivo CSV',
+        widget=forms.ClearableFileInput(attrs={
+            'accept': '.csv,text/csv',
+            'class': 'block w-full text-sm text-gray-900 file:mr-4 file:rounded-md file:border-0 file:bg-indigo-600 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-indigo-500',
+        }),
+    )
+
+    MAX_UPLOAD_SIZE = 5 * 1024 * 1024
+
+    def clean_csv_file(self):
+        csv_file = self.cleaned_data['csv_file']
+        if not csv_file.name.lower().endswith('.csv'):
+            raise forms.ValidationError('El archivo debe tener extensión .csv')
+        if csv_file.size > self.MAX_UPLOAD_SIZE:
+            raise forms.ValidationError('El archivo excede el tamaño máximo de 5 MB.')
+        return csv_file
+
+
+class BulkPostForm(PostForm):
+    """
+    PostForm used for every row of a CSV import. Same fields and widgets, but
+    event_type and role are validated against the allowed choices (the select
+    widget would otherwise silently replace an unknown CSV value), and an empty
+    option is added so missing values are reported instead of defaulted.
+    """
+    event_type = forms.ChoiceField(
+        choices=(('', '---------'),) + PostForm.Meta.event_choices,
+        widget=PostForm.Meta.widgets['event_type'].__class__(attrs=PostForm.Meta.widgets['event_type'].attrs),
+    )
+    role = forms.ChoiceField(
+        choices=(('', '---------'),) + PostForm.Meta.role_choices,
+        widget=PostForm.Meta.widgets['role'].__class__(attrs=PostForm.Meta.widgets['role'].attrs),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            field.label = FIELD_LABELS.get(name, field.label)
+        self.fields['date'].input_formats = ['%Y-%m-%d', '%d/%m/%Y', '%d-%m-%Y']
+        self.fields['date'].widget.format = '%Y-%m-%d'
